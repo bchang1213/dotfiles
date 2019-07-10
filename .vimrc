@@ -17,6 +17,9 @@ nnoremap <Leader>T :Tags<CR>
 
 " Select all with ctrl+a
 map <C-a> <esc>ggVG<CR>
+" Set tab and shift-tab to mimic standard indentation behavior
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 " Enable all functions of Emmet in all modes.
 let g:user_emmet_mode='a'
