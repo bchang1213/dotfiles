@@ -44,6 +44,7 @@ set ignorecase
 set smartcase
 set bs=2
 set hlsearch
+filetype plugin indent on
 " sets ejs as html
 au BufNewFile,BufRead *.ejs set filetype=html
 
