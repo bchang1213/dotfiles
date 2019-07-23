@@ -14,13 +14,18 @@ nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 " use :e filename and :w to create and write files
 :set autochdir
-
+" Save the file with control+w
+nnoremap <C-w> :w<CR>
 " Select all with ctrl+a
 map <C-a> <esc>ggVG<CR>
 " Set tab and shift-tab to mimic standard indentation behavior
 vmap <Tab> >gv
 vmap <S-Tab> <gv
-
+" Makes j & k to also move on wrapped lines, but still retains function when
+" using motions
+" https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Enable all functions of Emmet in all modes.
 let g:user_emmet_mode='a'
 
