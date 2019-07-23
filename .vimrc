@@ -28,7 +28,10 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Enable all functions of Emmet in all modes.
 let g:user_emmet_mode='a'
-
+" Press space to turn off highlighting and clear any message already displayed
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" only search text within the visually selected area
+vnoremap // y/<C-R>"<CR>
 " Turn on the vim editor syntax highlighting
 syntax on
 set expandtab
@@ -40,6 +43,7 @@ set autoread
 set ignorecase
 set smartcase
 set bs=2
+set hlsearch
 " sets ejs as html
 au BufNewFile,BufRead *.ejs set filetype=html
 
