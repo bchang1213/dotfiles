@@ -16,6 +16,7 @@ nnoremap <Leader>T :Tags<CR>
 :set autochdir
 " Save the file with control+w
 nnoremap <C-w> :w<CR>
+nnoremap <C-b> :b<CR>
 " Select all with ctrl+a
 map <C-a> <esc>ggVG<CR>
 " Set tab and shift-tab to mimic standard indentation behavior
