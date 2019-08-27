@@ -1,17 +1,23 @@
-" set the clipboard to system clipboard
-set clipboard=unnamed
-
 " FZF (Fuzzy Finder) Config
 " add fzf to runtime path
 set rtp+=/usr/local/opt/fzf
 " map :files command to control + p
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :Rg<CR>
+" Uses ripgrep in fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 " map the leader (back slash) key with b and h
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
+
 " use :e filename and :w to create and write files
 :set autochdir
 " Save the file with control+w
@@ -32,6 +38,14 @@ let g:user_emmet_mode='a'
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " only search text within the visually selected area
 vnoremap // y/<C-R>"<CR>
+
+" Make backspace behave normally
+set backspace=indent,eol,start
+set redrawtime=10000
+
+" set relative numbers and line numbers in netrw viewer
+" https://vi.stackexchange.com/questions/3372/how-do-i-setnumber-and-relativenumber-for-explore-in-vimrc
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
 " Turn on the vim editor syntax highlighting
 syntax on
 set expandtab
