@@ -1,6 +1,6 @@
 " Search for selected text.
 " http://vim.wikia.com/wiki/VimTip171
-
+" https://vim.fandom.com/wiki/Search_for_visually_selected_text
 let s:save_cpo = &cpo | set cpo&vim
 if !exists('g:VeryLiteral')
   let g:VeryLiteral = 0
