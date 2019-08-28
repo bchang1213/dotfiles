@@ -29,19 +29,6 @@ nnoremap <C-w> :w<CR>
 " Select all with ctrl+a
 map <C-a> <esc>ggVG<CR>
 
-" Persistens undo
-let vimDir = '$HOME/.vim'
-let &runtimepath.=','.vimDir
-
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    let undoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir ' . undoDir)
-    let &undodir = undoDir
-    set undofile
-endif
-
 " Set tab and shift-tab to mimic standard indentation behavior
 vmap <Tab> >gv
 vmap <S-Tab> <gv
@@ -58,31 +45,19 @@ let g:user_emmet_mode='a'
 " Press space to turn off highlighting and clear any message already displayed
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" move lines http://vim.wikia.com/wiki/Moving_lines_up_or_down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" only search text within the visually selected area
+vnoremap // y/<C-R>"<CR>
 
-" make backspace behave normally
-" https://stackoverflow.com/questions/18777705/vim-whats-the-default-backspace-behavior
+" Make backspace behave normally
 set backspace=indent,eol,start
 set redrawtime=10000
-
-" fix netrw mt, mf, mc
-let g:netrw_keepdir=0
-
-" <C-j> & <C-k> to move up and down the complete popup list
-inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <C-j>      pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <C-k>      pumvisible() ? "\<C-p>" : "\<Up>"
 
 " set relative numbers and line numbers in netrw viewer
 " https://vi.stackexchange.com/questions/3372/how-do-i-setnumber-and-relativenumber-for-explore-in-vimrc
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
+
+" fix netrw mt, mf, mc
+let g:netrw_keepdir=0
 
 " Turn on the vim editor syntax highlighting
 syntax on
@@ -96,11 +71,32 @@ set ignorecase
 set smartcase
 set bs=2
 set hlsearch
+set nocompatible
 filetype plugin indent on
+
 " sets ejs as html
 au BufNewFile,BufRead *.ejs set filetype=html
 
-" lightline config **********************************************************************************
+" Persistens undo
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let undoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . undoDir)
+    let &undodir = undoDir
+    set undofile
+endif
+
+" Edit .vimrc configuration file
+" https://www.cyberciti.biz/faq/how-to-reload-vimrc-file-without-restarting-vim-on-linux-unix/
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+
+" Reload .vimrc configuration file
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+
+"  lightline config **********************************************************************************
 " Automatically open & close quickfix window
 autocmd QuickFixCmdPost [^l]* nested cwindow
 
