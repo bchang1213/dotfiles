@@ -2,6 +2,8 @@
 " add fzf to runtime path
 set rtp+=/usr/local/opt/fzf
 
+set clipboard=unnamed
+
 " map :files command to control + p
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :Rg<CR>
