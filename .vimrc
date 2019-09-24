@@ -65,6 +65,7 @@ let g:netrw_keepdir=0
 syntax on
 set expandtab
 set shiftwidth=4
+set tabstop=4
 set softtabstop=4
 set ruler
 set number relativenumber

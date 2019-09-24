@@ -3,6 +3,7 @@
 #fuzzy file finder - ignore hidden directories like .git and those within .gitignore
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
+
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
@@ -41,11 +42,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(rbenv init -)"
 
-
-# Adding sublime text to commandline path
-# Set the location where you want Terminal to look for binaries on your machine.
-# This stores the symbolic link in the /usr/local/bin directory
-export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 # Sets the default editor as Sublime Text. You will note that the -w flag has been added which stands for --wait, which waits for the files to be closed before returning.
 export EDITOR='subl -w'
 
