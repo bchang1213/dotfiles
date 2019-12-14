@@ -4,6 +4,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #NVM
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+#Android Studio Android Emulator default setting
+export ANDROID_SDK='/Users/bchang/Library/Android/sdk'
+export PATH=/Users/myuser/Library/Android/sdk/platform-tools:$PATH
 
 # Sets the default editor as Sublime Text. You will note that the -w flag has been added which stands for --wait, which waits for the files to be closed before returning.
 export EDITOR='subl -w'

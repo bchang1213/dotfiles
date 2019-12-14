@@ -3,7 +3,6 @@
 #fuzzy file finder - ignore hidden directories like .git and those within .gitignore
 export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
-
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
