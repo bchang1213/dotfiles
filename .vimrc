@@ -61,13 +61,16 @@ let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
 " fix netrw mt, mf, mc
 let g:netrw_keepdir=0
 
+" change color of popup menu
+:highlight Pmenu ctermbg=gray guibg=gray
+
 " Turn on the vim editor syntax highlighting
 syntax on
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:. 
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
 set ruler
 set number relativenumber
