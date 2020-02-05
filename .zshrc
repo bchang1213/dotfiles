@@ -1,31 +1,30 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-#npm-global setting
-export PATH=~/.npm-global/bin:$PATH
+#NVM
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+#Android Studio Android Emulator default setting
+export ANDROID_SDK='/Users/bchang/Library/Android/sdk'
+export PATH=/Users/myuser/Library/Android/sdk/platform-tools:$PATH
+
+# Sets the default editor as Sublime Text. You will note that the -w flag has been added which stands for --wait, which waits for the files to be closed before returning.
+export EDITOR='subl -w'
+
+#ruby sourced from rbenv
+eval "$(rbenv init -)"
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="/Users/bchang/.oh-my-zsh"
+
+#fuzzy file finder - ignore hidden directories like .git and those within .gitignore
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
-
-#Pure ZSH theme setting
-autoload -U promptinit; promptinit
-
-# optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
-
-# change the path color
-zstyle :prompt:pure:path color white
-
-# change the color for both `prompt:success` and `prompt:error`
-zstyle ':prompt:pure:prompt:*' color cyan
-
-prompt pure
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
